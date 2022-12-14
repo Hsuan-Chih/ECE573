@@ -1,0 +1,15 @@
+//Inclass Exercise (Thermometer)
+//R. Traylor 11.4.2022
+
+In this inclass exercise we will implement a thermometer using the TWI 
+serial interface. 
+
+Connect the the LM75 board that is the temperature sensor breakbout board
+to the mega128 board. Connect the SCL,DAT,+5V and ground. 
+
+Download the necessary files to do the software development:
+
+Edit thermo3_skel.c as necessary with the given hints. For this exercise, I am only
+asking for a whole number decimal display of the temperature in degrees F. 
+
+Demo in lab like usual. 

@@ -1,0 +1,38 @@
+//Inclass Exercise (UART)
+//R. Traylor 11.5.2022
+
+In this inclass exercise we will conduct two "experiments". 
+The first experiment establishes that we have a working setup.
+
+1. (a) Get the necessary code via wget. Briefly look at the code
+       in uart_rxtx.c.
+   (b) Remove any jumpers on J7 or J9. 
+   (c) Put a jumper between Port E, bits zero and one. This
+       connects the UART0 TXDO and RXD0 ports. This will allow our
+       UART to talk to itself. 
+   (d) Compile and download to the mega128 board. 
+   (e) You should see the "Hi! Delbert: #" message if things
+       are working.
+
+2. (a) Edit uart_rxtx.c to send a personal message of your choice.
+   (b) Connect your mega128 board to a neighbors by connecting 
+       UART0 up as shown below.
+
+               Board 1                                      Board2
+               -------                                      ------
+        TXD0 (port E, bit 1) --------\     /-------- TXD0 (port E, bit 1)
+                                  /---\---/
+        RXD0 (port E, bit 0) ----/     \------------ RXD0 (port E, bit 0)
+        Gnd   -------------------------------------- Gnd
+
+   (c) You should be able to see your message on your neighbor's 
+       mega128 board.
+
+[The following experiment has not been tested. Let's see what happens!]
+3. (a) Remove the existing jumpers.
+   (b) Put jumpers in at J10, J11.
+   (c) Change your code to use USART1 instead of USART0.
+   (c) Point the IR port for each board towards the other. They should
+       be able to communicate.
+
+For checking off this inclass activity, just part 1 will be checked.
