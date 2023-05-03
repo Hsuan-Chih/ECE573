@@ -279,13 +279,9 @@ volatile uint8_t minute = 50;
 volatile uint8_t hour = 13;
 
 ISR(TIMER0_OVF_vect) {
-
 	count_7ms++;
-
-	//1sec
-	//test
-	//if((count_7ms%8) == 0) {
-	if((count_7ms%128) == 0) {
+	
+	if((count_7ms%128) == 0) {	//1sec
 		second += 1;
 		if(second == 60) {second = 0; minute += 1;}
 		if(minute == 60) {minute = 0; hour += 1;}
@@ -296,17 +292,14 @@ ISR(TIMER0_OVF_vect) {
 
 		//detect if sys clk time match alarm time
 		if((hour==alarm_hour) && (minute==alarm_minute) &&(second==0)) {
-			alarm_armed = 0x00; //alarm_armed is disable when alarm is awaken 
-			music_on(); //not tested because hardware issue(8 ohms speaker)
-			uh_laam = 0x01; //use to stimulate bar_graph
+			alarm_armed = 0x00; 	//alarm_armed is disable when alarm is awaken 
+			music_on(); 		//not tested because hardware issue(8 ohms speaker)
+			uh_laam = 0x01;	 	//use to stimulate bar_graph
 		}
-
-
 		bar_display();
-
 	}//end of if (1sec)
 	
-	if(uh_laam) {
+	if(uh_laam) {	//counter of Beaver Fight Song
 		count_alarm++;
 		if((count_alarm%8) == 0) {
 			beat++; //for note duration
@@ -318,7 +311,6 @@ ISR(TIMER0_OVF_vect) {
 			count_alarm = 0; 	//reset count_alarm	
 		}
 	}
-
 }//ISR(TIMER0_OVF_vect)
 
 //***********************************************************************************
